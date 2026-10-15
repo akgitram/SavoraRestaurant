@@ -42,7 +42,7 @@ public class SecurityConfig {
 
                 CorsConfiguration configuration = new CorsConfiguration();
 
-                configuration.setAllowedOrigins(List.of("http://localhost:5173"));
+                configuration.setAllowedOrigins(List.of("https://savora-restaurant-three.vercel.app/"));
 
                 configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
 
@@ -70,7 +70,7 @@ public class SecurityConfig {
                                 .authorizeHttpRequests(auth -> auth
 
                                                 .requestMatchers("/auth/user/signup", "/auth/user/login","/auth/user/verify-otp").permitAll()
-                                                
+
                                                 .requestMatchers(HttpMethod.GET, "/api/menu/**").permitAll()
 
                                                 .requestMatchers(HttpMethod.POST, "/api/menu/**").hasRole("ADMIN")
@@ -129,6 +129,8 @@ public class SecurityConfig {
 
                                                 .requestMatchers("/api/auth/**")
                                                 .permitAll()
+                                                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+
 
                                                 .anyRequest().authenticated())
 
