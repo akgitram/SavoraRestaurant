@@ -14,10 +14,10 @@ SAVORA is a full-stack restaurant web application built with **React, Spring Boo
 ![Restaurant Menu](docs/screenshots/menu.png)
 
 ### User Dashboard
-![User Dashboard](docs/screenshots/user-dashboard.png)
+![User Dashboard](docs/screenshots/user.png)
 
 ### Admin Dashboard
-![Admin Dashboard](docs/screenshots/admin-dashboard.png)
+![Admin Dashboard](docs/screenshots/admin.png)
 
 > Replace these screenshot files with actual screenshots from your application.
 
@@ -237,10 +237,5 @@ If the frontend cannot access the backend, check the API URL, Spring Security ru
 
 GitHub: [@akgitram](https://github.com/akgitram)
 
-## 📄 License
-
-Add a license file if you intend to grant others permission to reuse, modify, and distribute this project. Otherwise, do not claim that the project has an open-source license.
-
----
 
 Built with React, Spring Boot, and MySQL.
