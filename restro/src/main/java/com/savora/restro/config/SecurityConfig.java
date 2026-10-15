@@ -69,9 +69,9 @@ public class SecurityConfig {
 
                                 .authorizeHttpRequests(auth -> auth
 
-                                                .requestMatchers("/auth/user/signup", "/auth/user/login",
-                                                                "/auth/user/verify-otp")
-                                                .permitAll().requestMatchers(HttpMethod.GET, "/api/menu/**").permitAll()
+                                                .requestMatchers("/auth/user/signup", "/auth/user/login","/auth/user/verify-otp").permitAll()
+                                                
+                                                .requestMatchers(HttpMethod.GET, "/api/menu/**").permitAll()
 
                                                 .requestMatchers(HttpMethod.POST, "/api/menu/**").hasRole("ADMIN")
 
