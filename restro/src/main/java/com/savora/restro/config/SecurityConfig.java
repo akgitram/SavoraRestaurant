@@ -39,17 +39,16 @@ public class SecurityConfig {
 
         @Bean
         public CorsConfigurationSource corsConfigurationSource() {
-
                 CorsConfiguration configuration = new CorsConfiguration();
 
-                configuration.setAllowedOrigins(List.of("https://savora-restaurant-three.vercel.app",
-                                                        "https://savora-restaurant-*.vercel.app",
-                                                        "http://localhost:5173"));
+                configuration.setAllowedOriginPatterns(List.of("https://savora-restaurant-*.vercel.app",
+                                "https://savora-restaurant-three.vercel.app", "http://localhost:5173"));
+
                 configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
 
                 configuration.setAllowedHeaders(List.of("*"));
-
                 configuration.setAllowCredentials(true);
+                configuration.setMaxAge(3600L);
 
                 UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 
@@ -70,7 +69,9 @@ public class SecurityConfig {
 
                                 .authorizeHttpRequests(auth -> auth
 
-                                                .requestMatchers("/","/auth/user/signup", "/auth/user/login","/auth/user/verify-otp").permitAll()
+                                                .requestMatchers("/", "/auth/user/signup", "/auth/user/login",
+                                                                "/auth/user/verify-otp")
+                                                .permitAll()
 
                                                 .requestMatchers(HttpMethod.GET, "/api/menu/**").permitAll()
 
@@ -128,10 +129,8 @@ public class SecurityConfig {
 
                                                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
-                                                .requestMatchers("/api/auth/**")
-                                                .permitAll()
+                                                .requestMatchers("/api/auth/**").permitAll()
                                                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-
 
                                                 .anyRequest().authenticated())
 
