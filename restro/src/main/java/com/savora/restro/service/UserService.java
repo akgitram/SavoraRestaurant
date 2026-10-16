@@ -21,16 +21,16 @@ public class UserService {
     private UserRepo userRepo;
     private PasswordEncoder passwordEncoder;
     private JwtService jwtService;
-    private EmailService emailService;
     private SecureRandom secureRandom = new SecureRandom();
     private PendingSignupRepo pendingSignupRepo;
+    private BrevoEmailService emailService;
 
-    public UserService(UserRepo userRepo, PasswordEncoder passwordEncoder, JwtService jwtService,EmailService emailService,PendingSignupRepo pendingSignupRepo) {
+    public UserService(UserRepo userRepo, PasswordEncoder passwordEncoder, JwtService jwtService,PendingSignupRepo pendingSignupRepo,BrevoEmailService emailService) {
         this.userRepo = userRepo;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
-        this.emailService=emailService;
         this.pendingSignupRepo=pendingSignupRepo;
+        this.emailService=emailService;
     }
 
     private String genrateOtp() {
@@ -60,7 +60,7 @@ public class UserService {
 
         // Send OTP to the user's email
         try {
-            emailService.sendOtp(email, otp);
+            emailService.sendOtpEmail(email, otp);
         } catch (Exception e) {
             pendingSignupRepo.delete(pending);
             throw new RuntimeException("Failed to send OTP. Please try again."+e);
