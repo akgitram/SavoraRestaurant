@@ -63,7 +63,7 @@ public class UserService {
             emailService.sendOtp(email, otp);
         } catch (Exception e) {
             pendingSignupRepo.delete(pending);
-            throw new RuntimeException("Failed to send OTP. Please try again.");
+            throw new RuntimeException("Failed to send OTP. Please try again."+e);
         }
 
         return "OTP sent successfully. Verify your email to complete signup.";
