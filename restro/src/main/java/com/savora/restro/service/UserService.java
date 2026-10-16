@@ -59,7 +59,9 @@ public class UserService {
         pendingSignupRepo.save(pending);
 
         // Send OTP to the user's email
+        System.out.println(otp);
         try {
+            System.out.println(otp);
             emailService.sendOtpEmail(email, otp);
         } catch (Exception e) {
             pendingSignupRepo.delete(pending);
