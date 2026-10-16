@@ -1,21 +1,24 @@
+
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/auth/user";
+const API_URL =
+    import.meta.env.VITE_API_URL ||
+    "http://localhost:8080";
+
+const AUTH_URL = `${API_URL}/auth/user`;
 
 export const signupUser = async (userdata) => {
     const response = await axios.post(
-        `${API_URL}/signup`,
+        `${AUTH_URL}/signup`,
         userdata
     );
-
     return response.data;
 };
 
 export const loginUser = async (userdata) => {
     const response = await axios.post(
-        `${API_URL}/login`,
+        `${AUTH_URL}/login`,
         userdata
     );
-
     return response.data;
 };
