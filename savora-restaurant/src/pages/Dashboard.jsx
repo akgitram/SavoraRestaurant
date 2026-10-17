@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { API_URL } from "../config";
 function Dashboard() {
   const navigate = useNavigate();
 
@@ -35,7 +35,7 @@ function Dashboard() {
         }
 
         const response = await axios.get(
-          "http://localhost:8080/api/admin/dashboard/stats",
+          `${API_URL}/api/admin/dashboard/stats`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -182,12 +182,7 @@ function Dashboard() {
               👥 Users
             </button>
 
-            <button
-              onClick={() => navigate("/admin/review")}
-              className="mb-2 flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-gray-300 transition hover:bg-white/5 hover:text-[#F5B942]"
-            >
-              ⭐ Reviews
-            </button>
+            
             <button
               onClick={() => navigate("/my-orders")}
               className="mb-2 flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-gray-300 transition hover:bg-white/5 hover:text-[#F5B942]"
@@ -206,6 +201,12 @@ function Dashboard() {
               className="mb-2 flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-gray-300 transition hover:bg-white/5 hover:text-[#F5B942]"
             >
                📅 My Categories
+            </button>
+            <button
+              onClick={() => navigate("/profile")}
+              className="mb-2 flex w-full items-center gap-3 rounded-lg px-4 py-3 text-left text-gray-300 transition hover:bg-white/5 hover:text-[#F5B942]"
+            >
+              ⭐ Profile
             </button>
 
             <p className="mb-3 mt-8 px-3 text-xs uppercase tracking-widest text-gray-500">

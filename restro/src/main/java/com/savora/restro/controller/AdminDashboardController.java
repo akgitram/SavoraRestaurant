@@ -13,7 +13,7 @@ import com.savora.restro.entity.OrderStatus;
 
 @RestController
 @RequestMapping("/api/admin/dashboard")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "${app.frontend.url}")
 public class AdminDashboardController {
 
     private final OrderRepo orderRepo;

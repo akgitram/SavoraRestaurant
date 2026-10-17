@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-
-const API_URL = "http://localhost:8080/api/user";
+import { API_URL } from "../config";
+const API_URLS = `${API_URL}/api/user`;
 
 function AdminReservation() {
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ function AdminReservation() {
         return;
       }
 
-      const response = await axios.get(API_URL, {
+      const response = await axios.get(API_URLS, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -69,7 +69,7 @@ function AdminReservation() {
       const token = getToken();
 
       await axios.put(
-        `${API_URL}/${id}/status`,
+        `${API_URLS}/${id}/status`,
         null,
         {
           params: {
@@ -114,7 +114,7 @@ function AdminReservation() {
       const token = getToken();
 
       await axios.delete(
-        `${API_URL}/${id}`,
+        `${API_URLS}/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -1,6 +1,6 @@
 import axios from "axios";
-
-const API_URL = "http://localhost:8080/api/user";
+import { API_URL } from "../config";
+const API_URLS = `${API_URL}/api/user`;
 
 export const createReservation = async (reservationData) => {
   const token = localStorage.getItem("token");
@@ -8,7 +8,7 @@ export const createReservation = async (reservationData) => {
   console.log("token",!token);
 
   const response = await axios.post(
-    API_URL,
+    API_URLS,
     reservationData,
     {
       headers: {

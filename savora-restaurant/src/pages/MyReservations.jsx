@@ -12,8 +12,8 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
-const API_URL = "http://localhost:8080/api/user";
+import { API_URL } from "../config";
+const API_URLS = `${API_URL}/api/user`;
 
 function MyReservations() {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ function MyReservations() {
       setLoading(true);
 
       const response = await axios.get(
-        `${API_URL}/my`,
+        `${API_URLS}/my`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -94,7 +94,7 @@ function MyReservations() {
 
     try {
       await axios.put(
-        `${API_URL}/${id}/status`,
+        `${API_URLS}/${id}/status`,
         null,
         {
           params: {

@@ -1,11 +1,11 @@
 function WhatsAppButton() {
-  const phoneNumber = "919876543210";
+  const phoneNumber = "8355007631";
 
   const message = encodeURIComponent(
     "Hello SAVORA, I would like to know more about your restaurant."
   );
 
-  const whatsappUrl = `https://wa.me/${8355007631}?text=${message}`;
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
   return (
     <a

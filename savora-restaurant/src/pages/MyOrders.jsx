@@ -2,14 +2,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import { API_URL } from "../config";
 export default function MyOrders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [cancelingId, setCancelingId] = useState(null);
 
-  const API_URL = "http://localhost:8080/api/orders";
+  const API_URLS = `${API_URL}/api/orders`;
 
   const fetchOrders = async () => {
     try {
@@ -24,7 +24,7 @@ export default function MyOrders() {
         return;
       }
 
-      const response = await axios.get(`${API_URL}/my`, {
+      const response = await axios.get(`${API_URLS}/my`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -83,7 +83,7 @@ export default function MyOrders() {
       }
 
       const response = await axios.patch(
-        `${API_URL}/${orderId}/cancel`,
+        `${API_URLS}/${orderId}/cancel`,
         {},
         {
           headers: {

@@ -3,8 +3,6 @@ package com.savora.restro.service;
 import java.security.SecureRandom;
 import java.time.LocalDateTime;
 
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -122,23 +120,23 @@ public class UserService {
         return new LoginResponse(token, user.getName(), user.getEmail(), user.getRole().name());
     }
 
-    @Bean
-    CommandLineRunner createAdmin(UserRepo userRepository, PasswordEncoder
-    passwordEncoder) {
-    return args -> {
+    // // @Bean
+    // // CommandLineRunner createAdmin(UserRepo userRepository, PasswordEncoder
+    // passwordEncoder) {
+    // return args -> {
 
-    if (!userRepository.existsByEmail("admin@savora.com")) {
+    // if (!userRepository.existsByEmail("admin@savora.com")) {
 
-    User admin = new User();
+    // User admin = new User();
 
-    admin.setName("Akram Ali");
-    admin.setEmail("aliakram8355@gmail.com");
-    admin.setPassword(passwordEncoder.encode("Admin@8355"));
-    admin.setRole(Role.ADMIN);
+    // admin.setName("Akram Ali");
+    // admin.setEmail("aliakram8355@gmail.com");
+    // admin.setPassword(passwordEncoder.encode("Admin@8355"));
+    // admin.setRole(Role.ADMIN);
 
-    userRepository.save(admin);
-    }
-    };
-    }
+    // userRepository.save(admin);
+    // }
+    // };
+    // }
 
 }

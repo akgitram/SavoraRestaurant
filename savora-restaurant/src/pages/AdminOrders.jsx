@@ -2,8 +2,8 @@
 import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
-const API_URL = "http://localhost:8080/api/admin/orders";
+import { API_URL } from "../config";
+const API_URLS = `${API_URL}/api/admin/orders`;
 
 const STATUSES = [
   "PENDING",
@@ -75,7 +75,7 @@ export default function AdminOrders() {
     try {
       setError("");
 
-      const response = await axios.get(API_URL, {
+      const response = await axios.get(API_URLS, {
         headers: getHeaders(),
       });
 
@@ -142,7 +142,7 @@ export default function AdminOrders() {
     try {
       // Update order status in the backend.
       const response = await axios.patch(
-        `${API_URL}/${id}/status`,
+        `${API_URLS}/${id}/status`,
         { status: newStatus },
         { headers: getHeaders() }
       );
@@ -176,7 +176,7 @@ export default function AdminOrders() {
 
       // Refresh to retrieve updated confirmation/delivery timestamps.
       try {
-        const refresh = await axios.get(API_URL, {
+        const refresh = await axios.get(API_URLS, {
           headers: getHeaders(),
         });
 

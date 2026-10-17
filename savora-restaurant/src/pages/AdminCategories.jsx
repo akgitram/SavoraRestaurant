@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-
-const API = "http://localhost:8080/api/categories";
+import { API_URL } from "../config";
+const API = `${API_URL}/api/categories`;
 
 function AdminCategories() {
   const [categories, setCategories] = useState([]);

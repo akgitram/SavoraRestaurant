@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { API_URL } from "../config";
 export default function VerifyEmail() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ export default function VerifyEmail() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/auth/user/verify-otp",
+        `${API_URL}/auth/user/verify-otp`,
         { email, otp }
       );
 

@@ -7,8 +7,9 @@ import Footer from "../components/Footer";
 import SectionTitle from "../components/SectionTitle";
 import WhatsAppButton from "../components/WhatsAppButton";
 
-const CATEGORY_API = "http://localhost:8080/api/categories";
-const MENU_API = "http://localhost:8080/api/menu";
+import { API_URL } from "../config";
+const CATEGORY_API = `${API_URL}/api/categories`;
+const MENU_API = `${API_URL}/api/menu`;
 const FALLBACK_IMAGE = "/images/pizza.jpeg";
 
 function getList(data) {

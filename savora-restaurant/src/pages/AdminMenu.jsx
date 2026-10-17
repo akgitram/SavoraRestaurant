@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
-const MENU_API = "http://localhost:8080/api/menu";
-const CATEGORY_API = "http://localhost:8080/api/categories";
+import { API_URL } from "../config";
+const MENU_API = `${API_URL}/api/menu`;
+const CATEGORY_API = `${API_URL}/api/categories`;
 
 function getList(data) {
   if (Array.isArray(data)) return data;

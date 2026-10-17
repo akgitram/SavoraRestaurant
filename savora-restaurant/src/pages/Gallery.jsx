@@ -4,8 +4,8 @@ import axios from "axios";
 import { RefreshCw, Image as ImageIcon } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
-const API_URL = "http://localhost:8080/admin/gellery";
+import { API_URL } from "../config";
+const API_URLS = `${API_URL}/admin/gellery`;
 
 function Gallery() {
   const [images, setImages] = useState([]);
@@ -17,7 +17,7 @@ function Gallery() {
       setLoading(true);
       setError("");
 
-      const response = await axios.get(API_URL);
+      const response = await axios.get(API_URLS);
 
       console.log("Gallery images:", response.data);
 

@@ -1,7 +1,6 @@
 
 package com.savora.restro.entity;
 
-import org.hibernate.validator.constraints.Length;
 
 import jakarta.persistence.*;
 

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { API_URL } from "../config";
 import {
   MapPin,
   Phone,
@@ -38,7 +39,7 @@ function Contact() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/contect",
+        `${API_URL}/api/contect`,
         formData,
         {
           headers: {

@@ -28,7 +28,7 @@ const chefs = [
   {
     name: "Sarah Wilson",
     role: "Specialty Chef",
-    image: "/images/chef4.jpeg",
+    image: "/images/chef1.jpeg",
   },
 ];
 

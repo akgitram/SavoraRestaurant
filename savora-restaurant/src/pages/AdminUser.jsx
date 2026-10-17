@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { API_URL } from "../config";
 function AdminUsers() {
   const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ function AdminUsers() {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        "http://localhost:8080/api/admin/users",
+        `${API_URL}/api/admin/users`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

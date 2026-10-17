@@ -5,9 +5,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import FoodCard from "../components/FoodCard";
 import axios from "axios";
-
-const CATEGORY_API = "http://localhost:8080/api/categories";
-const MENU_API = "http://localhost:8080/api/menu";
+import { API_URL } from "../config";
+const CATEGORY_API = `${API_URL}/api/categories`;
+const MENU_API = `${API_URL}/api/menu`;
 
 function getList(data) {
   if (Array.isArray(data)) return data;

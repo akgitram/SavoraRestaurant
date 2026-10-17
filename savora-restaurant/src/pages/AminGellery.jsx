@@ -3,8 +3,8 @@ import axios from "axios";
 import { Plus, Trash2, Image as ImageIcon, RefreshCw } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
-const API_URL = "http://localhost:8080/admin/gellery";
+import { API_URL } from "../config";
+const API_URLS = `${API_URL}/admin/gellery`;
 
 function AminGellery() {
   const [images, setImages] = useState([]);
@@ -23,7 +23,7 @@ function AminGellery() {
   const fetchImages = async () => {
     try {
       setError("");
-      const response = await axios.get(API_URL);
+      const response = await axios.get(API_URLS);
       setImages(response.data);
       console.log("data loaded", response.data);
     } catch (err) {
@@ -44,7 +44,7 @@ function AminGellery() {
 
     try {
       await axios.post(
-        API_URL,
+        API_URLS,
         {
           name: name.trim(),
           imageUrl: imageUrl.trim(),
@@ -94,7 +94,7 @@ function AminGellery() {
     setError("");
 
     try {
-      const response = await axios.delete(`${API_URL}/${id}`, {
+      const response = await axios.delete(`${API_URLS}/${id}`, {
         headers: getHeaders(),
       });
 

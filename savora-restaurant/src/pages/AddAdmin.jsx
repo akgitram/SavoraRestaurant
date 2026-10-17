@@ -2,8 +2,9 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../config";
 
-const API_URL = "http://localhost:8080/api/admin";
+const API_URLS = `${API_URL}/api/admin`;
 
 export default function AddAdmin() {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ export default function AddAdmin() {
       }
 
       const response = await axios.post(
-        `${API_URL}/create`,
+        `${API_URLS}/create`,
         form,
         {
           headers: {
